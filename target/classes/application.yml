@@ -1,0 +1,23 @@
+# 多模型配置：可配置多个模型，按名称引用
+models:
+  configs:
+    - name: qwen-plus
+      api-key: your-api-key-1
+      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+      model: qwen-plus
+    - name: qwen-turbo
+      api-key: your-api-key-2
+      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+      model: qwen-turbo
+    - name: deepseek
+      api-key: your-api-key-3
+      base-url: https://api.deepseek.com/v1
+      model: deepseek-chat
+  # 当前使用的模型名称，对应上面 configs 中的 name
+  active: qwen-plus
+
+# 分类分级配置
+classification:
+  max-retries: 3
+  thread-count: 6
+  output-file: output/classification_result.xlsx
