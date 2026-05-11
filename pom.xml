@@ -68,6 +68,21 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- Elasticsearch RestClient -->
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-client</artifactId>
+            <version>8.13.4</version>
+        </dependency>
+        <dependency>
+            <groupId>co.elastic.clients</groupId>
+            <artifactId>elasticsearch-java</artifactId>
+            <version>8.13.4</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.json</groupId>
+            <artifactId>jakarta.json-api</artifactId>
+        </dependency>
         <!-- Apache POI for Excel -->
         <dependency>
             <groupId>org.apache.poi</groupId>

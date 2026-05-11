@@ -6,6 +6,7 @@ import com.alibaba.cloud.ai.graph.KeyStrategyFactory;
 import com.alibaba.cloud.ai.graph.StateGraph;
 import com.alibaba.cloud.ai.graph.exception.GraphStateException;
 import com.alibaba.cloud.ai.graph.state.strategy.ReplaceStrategy;
+import com.example.classification.workflow.node.ClassificationAgentNode;
 import com.example.classification.workflow.node.SensitiveDetectNode;
 import com.example.classification.workflow.node.SummarizeNode;
 import org.springframework.context.annotation.Bean;
@@ -24,6 +25,7 @@ public class ClassificationGraphConfig {
     @Bean
     public CompiledGraph classificationGraph(
             SensitiveDetectNode sensitiveDetectNode,
+            ClassificationAgentNode classificationAgentNode,
             SummarizeNode summarizeNode) throws GraphStateException {
 
         KeyStrategyFactory keyStrategyFactory = () -> {
@@ -35,9 +37,11 @@ public class ClassificationGraphConfig {
 
         StateGraph graph = new StateGraph("classification", keyStrategyFactory)
                 .addNode("sensitiveDetect", node_async(sensitiveDetectNode))
+                .addNode("classificationAgent", node_async(classificationAgentNode))
                 .addNode("summarize", node_async(summarizeNode))
                 .addEdge(START, "sensitiveDetect")
-                .addEdge("sensitiveDetect", "summarize")
+                .addEdge("sensitiveDetect", "classificationAgent")
+                .addEdge("classificationAgent", "summarize")
                 .addEdge("summarize", END);
 
         return graph.compile();

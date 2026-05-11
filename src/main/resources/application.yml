@@ -16,6 +16,15 @@ models:
   # 当前使用的模型名称，对应上面 configs 中的 name
   active: qwen-plus
 
+# 知识库 ES 配置
+knowledge-base:
+  es-url: http://localhost:9200
+  es-index: kb-chunks
+  embedding:
+    api-key: ${DASHSCOPE_API_KEY:}
+    base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    model: text-embedding-v4
+
 # 分类分级配置
 classification:
   max-retries: 3
