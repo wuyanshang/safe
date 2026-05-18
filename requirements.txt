@@ -1,0 +1,30 @@
+# RAG评估系统依赖
+
+# LangGraph和LangChain
+langgraph>=0.0.20
+langchain>=0.1.0
+langchain-openai>=0.0.5
+langchain-core>=0.1.0
+
+# Elasticsearch
+elasticsearch>=8.0.0
+
+# Embedding模型
+sentence-transformers>=2.2.0
+torch>=2.0.0
+
+# OpenAI
+openai>=1.0.0
+
+# 数据处理
+pandas>=2.0.0
+numpy>=1.24.0
+
+# 中文分词
+jieba>=0.42.1
+
+# 进度条
+tqdm>=4.65.0
+
+# 其他
+python-dotenv>=1.0.0
